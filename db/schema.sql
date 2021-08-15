@@ -1,6 +1,12 @@
 DROP TABLE IF EXISTS departments;
 DROP TABLE IF EXISTS roles;
 DROP TABLE IF EXISTS employees;
+DROP DATABASE IF EXISTS employee_tracker;
+CREATE DATABASE employee_tracker;
+
+USE employee_tracker;
+
+
 
 CREATE TABLE departments (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
@@ -20,10 +26,10 @@ CREATE TABLE employees (
     -> first_name VARCHAR(30) NOT NULL,
     -> last_name VARCHAR(30) NOT NULL,
     -> roles_id INT NOT NULL,
-    -> manager_id INT NOT NULL,
+    -> manager_id INT,
     -> FOREIGN KEY (roles_id) REFERENCES roles(id),
     -> FOREIGN KEY (manager_id) REFERENCES employees(id)
     -> );
 
 
-
+SET FOREIGN_KEY_CHECKS = 0;
